@@ -40,13 +40,14 @@
                         <td><?= $person['id'] ?></td>
                         <td><?= $person['username'] ?></td>
                         <td><?= $person['password'] ?></td>
-                        <td><?= $person['age'] ?></td>   
-                        <td><button><a href="delete.php?id=<?= $person['id'] ?>">Delete</a></button></td>               
+                        <td><?= $person['age'] ?></td> 
+                        <td><button><a href="delete.php?id=<?= $person['id'] ?>">Delete</a></button>
+                        <button><a href="edit.php?id=<?= $person['id'] ?>">Edit</a></button> </td>
                     </tr>
                     <?php
                 }
                 ?>
             </tbody>
         </table>
-        <a href="../module_9/index.php">Add User</a>
+        <a href="../module_9/form.html">Add User</a>
     </body>
