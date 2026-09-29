@@ -9,11 +9,11 @@ if(isset($_POST['submit'])){
 
     $hashed_password=password_hash($password,PASSWORD_BCRYPT);
 
-    if(emty($name)||
-    emty($surname)||
-    emty($username)||
-    emty($email)||
-    emty($passowrd)){
+    if(empty($name)||
+    empty($surname)||
+    empty($username)||
+    empty($email)||
+    empty($passowrd)){
         echo "You neeed to fill all data";
     }else{
         $sql="SELECT * FROM user_login where email='$email' OR username=$'username'";
@@ -28,7 +28,11 @@ if(isset($_POST['submit'])){
         else{
             $sql="INSERT INTO user_login(name,surname,username,email,password) VALUES ('$name','$surname','$username','$email','hashed_password')";
 
-            $insertSql=$conn
+            $insertSql=$conn->prepare($sql);
+            $insertSql->execute();
+
+            echo "New user is created successfully!";
+            header("refresh:2; url=login.php");
         }
     }
 }
